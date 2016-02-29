@@ -2,19 +2,20 @@ import subprocess
 import glob
 import os
 
+#A substring is chosen for the script to stop the loop once it reaches the end of git stash list
 def file(name_of_file):
-    #A substring is chosen for the script to stop the loop once it reaches the end of git stash list
     string_for_file_script = 'cat %s temp%stemp.csv > temp%soutput.csv' % (name_of_file, name_of_file, name_of_file)
     string_for_convert_script = 'cat temp%soutput.csv > temp%stemp.csv' % (name_of_file, name_of_file)
     subprocess.call(string_for_file_script, shell=True)
     subprocess.call(string_for_convert_script, shell=True)
 
-#Git used to change the stash
+# A function for Git to change the stash
 def runGit(): 
     subprocess.call('git reset --hard', shell=True) 
     subprocess.call('git stash pop -q', shell=True)
     print 'Done'
 
+# A function to remove the excess files
 def removeJunk():
     for fl in glob.glob("*kismet.csv"):
         os.remove(fl)
@@ -29,13 +30,11 @@ def removeExcess():
     subprocess.call('cat *output.csv >> master.csv', shell=True)
     for kl in glob.glob("*output.csv"):
 	os.remove(kl)
-#    subprocess.Popen('python stash.py', shell=True)
 
 def killVersioning():
     subprocess.call('pkill -1 -f versioning.py', shell=True)
 
 def main():
-#    for nl in glob.glob("num*.csv"):
     try:
 	killVersioning()
 	removeJunk()    
