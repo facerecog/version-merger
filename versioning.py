@@ -12,11 +12,11 @@ def stash(name_of_file):
     time.sleep(5)
 
 def removeJunk():
-    for fl in glob.glob("../Raw/*kismet.csv"):
+    for fl in glob.glob("*kismet.csv"):
         os.remove(fl)
-    for gl in glob.glob("../Raw/*.cap"):
+    for gl in glob.glob("*.cap"):
         os.remove(gl)
-    for hl in glob.glob("../Raw/*.netxml"):
+    for hl in glob.glob("*.netxml"):
         os.remove(hl)
 def startGit():
     subprocess.call('git init', shell=True)
@@ -28,6 +28,6 @@ def startGit():
 startGit()
 while True:
     removeJunk()
-    newest = max(glob.iglob("../Raw/dump*.csv"), key=os.path.getctime)
+    newest = max(glob.iglob("dump*.csv"), key=os.path.getctime)
     stash(newest)
     print newest
