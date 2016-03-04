@@ -71,7 +71,10 @@ def unPop():
 if __name__=="__main__":
     try:
         startGit()
-        versionControl(60)
-        unPop()
+        while True:
+            file = open('clone.csv', 'w+')
+            versionControl(60)
+            unPop()
+            file.close
     except IOError:
         pass
