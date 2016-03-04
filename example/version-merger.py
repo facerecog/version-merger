@@ -72,9 +72,9 @@ if __name__=="__main__":
     try:
         startGit()
         while True:
-            file = open('clone.csv', 'w+')
+            fileClone = open('clone.csv', 'w+')
             versionControl(60)
             unPop()
-            file.close
+            fileClone.close
     except IOError:
         pass
