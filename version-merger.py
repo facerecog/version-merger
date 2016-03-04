@@ -60,22 +60,22 @@ def killVersioning():
     subprocess.call('pkill -1 -f versioning.py', shell=True)
 
 def unPop():
-	while True:
-	    substring = 'stash@{0}:'
-    	    outputfromList = subprocess.check_output('git stash list', shell=True)
-    	    if substring in outputfromList:
-		runGit()
-		for abc in glob.glob("clone*.csv"):
-   			file(abc)
-	        else:	
-		        removeExcess()
-		        break
+    while True:
+    	substring = 'stash@{0}:'
+    	outputfromList = subprocess.check_output('git stash list', shell=True)
+    	if substring in outputfromList:
+	    runGit()
+	    for abc in glob.glob("clone*.csv"):
+   		file(abc)
+	else:	
+	    removeExcess()
+	    break
 
 if __name__=="__main__":
     try:
-      startGit()
-      versionControl(60)
-      killVersioning()
-      unPop()
+        startGit()
+        versionControl(60)
+        killVersioning()
+        unPop()
     except IOError:
-	    pass
+        pass
