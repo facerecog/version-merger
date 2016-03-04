@@ -64,9 +64,9 @@ def unPop():
 	    substring = 'stash@{0}:'
     	    outputfromList = subprocess.check_output('git stash list', shell=True)
     	    if substring in outputfromList:
-		        runGit()
-		        for abc in glob.glob("clone*.csv"):
-   		        file(abc)
+		runGit()
+		for abc in glob.glob("clone*.csv"):
+   			file(abc)
 	        else:	
 		        removeExcess()
 		        break
