@@ -56,9 +56,6 @@ def removeExcess():
     for kl in glob.glob("*output.csv"):
 	os.remove(kl)
 
-def killVersioning():
-    subprocess.call('pkill -1 -f versioning.py', shell=True)
-
 def unPop():
     while True:
     	substring = 'stash@{0}:'
@@ -75,7 +72,6 @@ if __name__=="__main__":
     try:
         startGit()
         versionControl(60)
-        killVersioning()
         unPop()
     except IOError:
         pass
