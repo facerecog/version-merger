@@ -3,7 +3,8 @@ Version Merger is a Python script which can be used to save snapshots of a CSV a
 
 Go to the examples/ folder and run  randomizing_csv.py to produce a dump file which changes every second:
 
-`cd example` 
+`cd example`
+
 `$ python randomizing_csv.py` 
 
 Run  version-merger.py in the following manner:
