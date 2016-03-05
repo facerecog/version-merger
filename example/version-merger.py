@@ -61,7 +61,7 @@ def createCopy(name_of_output_file):
     for jl in glob.glob("*temp.csv"):
 	os.remove(jl)
     createMaster = 'cat *output.csv >> %s' % name_of_output_file
-    subprocess.call('cat *output.csv >> master.csv', shell=True)
+    subprocess.call(createMaster, shell=True)
     for kl in glob.glob("*output.csv"):
 	os.remove(kl)
 
