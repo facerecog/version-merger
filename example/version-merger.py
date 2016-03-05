@@ -11,18 +11,20 @@ parser = argparse.ArgumentParser(description="Run version merger")
 parser.add_argument("-i", "--input", metavar="filename", required=True, type=str, help="Input file to version merge")
 parser.add_argument("-o", "--output", metavar="filename", default="master.csv", type=str, help="Output file to version merge")
 parser.add_argument("-t", "--time", metavar="seconds", default=60, type=int, help="Time interval between each merge")
+parser.add_argument("-r", "--resolution", metavar="seconds", default=5, type=int, help="Time interval between each merge")
 args = parser.parse_args()
 
 inputFile = args.i
 outputFile = args.o
 timeInterval = args.t
+dataResolution = arg.r
 
 def stash(name_of_file):
     shutil.copy(name_of_file, './clone.csv')
     subprocess.call('git add clone.csv', shell=True)
     subprocess.call('git stash', shell=True)
     print 'Submitted'
-    time.sleep(5)
+    time.sleep(dataResolution)
 
 def startGit():
     fileClone = open('clone.csv', 'w+')
