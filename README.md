@@ -1,12 +1,12 @@
 # version-merger
 Version Merger is a Python script which can be used to save snapshots of a CSV as it changes through time. Property of Facerecog Asia Pte. Ltd. and 26 Factorial
 
-1. Go to the examples/ folder and run  randomizing_csv.py to produce a dump file which changes every second:
+Go to the examples/ folder and run  randomizing_csv.py to produce a dump file which changes every second:
 
 `cd example` 
 `$ python randomizing_csv.py` 
 
-2. Run  version-merger.py in the following manner:
+Run  version-merger.py in the following manner:
  
 `$ python version-merger.py -i <input_file> -o <output_file> -t <seconds> -r <data_resolution_in_seconds>`
 
