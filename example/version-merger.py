@@ -8,9 +8,9 @@ import glob
 import argparse
 
 parser = argparse.ArgumentParser(description="Run version merger")
-parser.add_argument("-i", metavar="filename", required=True, type=str, help="Input file to version merge")
-parser.add_argument("-o", metavar="filename", required=True, type=str, help="Output file to version merge")
-parser.add_argument("-t", metavar="seconds", required=True, type=int, help="Output file to version merge")
+parser.add_argument("-i", "--input", metavar="filename", required=True, type=str, help="Input file to version merge")
+parser.add_argument("-o", "--output", metavar="filename", default="master.csv", type=str, help="Output file to version merge")
+parser.add_argument("-t", "--time", metavar="seconds", default=60, type=int, help="Time interval between each merge")
 args = parser.parse_args()
 
 inputFile = args.i
@@ -48,19 +48,9 @@ def runGit():
 def versionControl(second_delay, name_of_file):
     t_end = time.time() + second_delay
     while time.time() < t_end:
-        removeJunk()
         newest = max(glob.iglob(name_of_file), key=os.path.getctime)
         stash(newest)
         print newest
-
-# A function to remove the excess files
-def removeJunk():
-    for fl in glob.glob("*kismet.csv"):
-        os.remove(fl)
-    for gl in glob.glob("*.cap"):
-        os.remove(gl)
-    for hl in glob.glob("*.netxml"):
-        os.remove(hl)
 
 # A function to copy to a MASTER copy
 def createCopy(name_of_output_file):
