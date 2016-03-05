@@ -1,8 +1,21 @@
+#!/usr/bin/env python
+
 import subprocess
 import time
 import shutil
 import os
 import glob
+import argparse
+
+parser = argparse.ArgumentParser(description="Run version merger")
+parser.add_argument("-i", metavar="filename", required=True, type=str, help="Input file to version merge")
+parser.add_argument("-o", metavar="filename", required=True, type=str, help="Output file to version merge")
+parser.add_argument("-t", metavar="seconds", required=True, type=int, help="Output file to version merge")
+args = parser.parse_args()
+
+inputFile = args.i
+outputFile = args.o
+timeInterval = args.t
 
 def stash(name_of_file):
     shutil.copy(name_of_file, './clone.csv')
@@ -71,10 +84,10 @@ def unPop():
 if __name__=="__main__":
     try:
         startGit()
+        fileClone = open('clone.csv', 'w+')
+        fileClone.close
         while True:
-            fileClone = open('clone.csv', 'w+')
             versionControl(60)
             unPop()
-            fileClone.close
     except IOError:
         pass
