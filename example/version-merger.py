@@ -14,10 +14,10 @@ parser.add_argument("-t", "--time", metavar="seconds", default=60, type=int, hel
 parser.add_argument("-r", "--resolution", metavar="seconds", default=5, type=int, help="Time interval between each merge")
 args = parser.parse_args()
 
-inputFile = args.i
-outputFile = args.o
-timeInterval = args.t
-dataResolution = arg.r
+inputFile = args.input
+outputFile = args.output
+timeInterval = args.time
+dataResolution = args.resolution
 
 def stash(name_of_file):
     shutil.copy(name_of_file, './clone.csv')
