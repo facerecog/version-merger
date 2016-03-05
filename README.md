@@ -7,7 +7,7 @@ Go to the examples/ folder and run  randomizing_csv.py to produce a dump file wh
 
 `$ python randomizing_csv.py` 
 
-Run  version-merger.py in the following manner:
+Run  version-merger.py in another terminal:
  
 `$ python version-merger.py -i <input_file> -o <output_file> -t <seconds> -r <data_resolution_in_seconds>`
 
