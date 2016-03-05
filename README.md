@@ -7,5 +7,6 @@ Version Merger is a Python script which can be used to save snapshots of a CSV a
 
 2. Run  version-merger.py in the following manner:
 `$ python version-merger.py -i <input_file> -o <output_file> -t <seconds> -r <data_resolution_in_seconds>`
+
 Example below
 `$ python version-merger.py -i dump*.csv -o mastercopy.csv -t 60 -r 1` 
