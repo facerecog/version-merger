@@ -42,12 +42,6 @@ def file(name_of_file):
     subprocess.call(string_for_file_script, shell=True)
     subprocess.call(string_for_convert_script, shell=True)
 
-# A function for Git to change the stash
-def runGit(): 
-    subprocess.call('git reset --hard', shell=True) 
-    subprocess.call('git stash pop -q', shell=True)
-    print 'Done'
-
 # A function to start version control for n seconds
 def versionControl(second_delay, name_of_file):
     t_end = time.time() + second_delay
@@ -56,6 +50,12 @@ def versionControl(second_delay, name_of_file):
         stash(newest)
         print newest
 
+# A function for Git to change the stash
+def runGit(): 
+    subprocess.call('git reset --hard', shell=True) 
+    subprocess.call('git stash pop -q', shell=True)
+    print 'Done'
+    
 # A function to copy to a MASTER copy
 def createCopy(name_of_output_file):
     for jl in glob.glob("*temp.csv"):
