@@ -25,6 +25,8 @@ def stash(name_of_file):
     time.sleep(5)
 
 def startGit():
+    fileClone = open('clone.csv', 'w+')
+    fileClone.close
     subprocess.call('git init', shell=True)
     subprocess.call('git config --global user.email "you@example.com"', shell=True)
     subprocess.call('git config --global user.name "Your Name"', shell=True)
@@ -77,8 +79,6 @@ def unPop():
 # Main command that creates a blank copy called 'clone.csv'
 if __name__=="__main__":
     try:
-    	fileClone = open('clone.csv', 'w+')
-        fileClone.close
         startGit()
         while True:
             versionControl(timeInterval, inputFile)
