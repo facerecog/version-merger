@@ -62,7 +62,8 @@ def removeJunk():
     for hl in glob.glob("*.netxml"):
         os.remove(hl)
 
-def removeExcess(name_of_output_file):
+# A function to copy to a MASTER copy
+def createCopy(name_of_output_file):
     for jl in glob.glob("*temp.csv"):
 	os.remove(jl)
     createMaster = 'cat *output.csv >> %s' % name_of_output_file
@@ -70,6 +71,7 @@ def removeExcess(name_of_output_file):
     for kl in glob.glob("*output.csv"):
 	os.remove(kl)
 
+# A function to merge all the version control
 def unPop():
     while True:
     	substring = 'stash@{0}:'
@@ -79,9 +81,10 @@ def unPop():
 	    for abc in glob.glob("clone*.csv"):
    		file(abc)
 	else:	
-	    removeExcess(outputFile)
+	    createCopy(outputFile)
 	    break
 
+# Main command that creates a blank copy called 'clone.csv'
 if __name__=="__main__":
     try:
     	fileClone = open('clone.csv', 'w+')
