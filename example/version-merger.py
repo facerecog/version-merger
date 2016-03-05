@@ -84,9 +84,9 @@ def unPop():
 
 if __name__=="__main__":
     try:
-        startGit()
-        fileClone = open('clone.csv', 'w+')
+    	fileClone = open('clone.csv', 'w+')
         fileClone.close
+        startGit()
         while True:
             versionControl(timeInterval, inputFile)
             unPop()
