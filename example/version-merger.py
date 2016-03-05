@@ -45,11 +45,11 @@ def runGit():
     print 'Done'
 
 # A function to start version control for n seconds
-def versionControl(second_delay):
+def versionControl(second_delay, name_of_file):
     t_end = time.time() + second_delay
     while time.time() < t_end:
         removeJunk()
-        newest = max(glob.iglob("dump*.csv"), key=os.path.getctime)
+        newest = max(glob.iglob(name_of_file), key=os.path.getctime)
         stash(newest)
         print newest
 
@@ -62,9 +62,10 @@ def removeJunk():
     for hl in glob.glob("*.netxml"):
         os.remove(hl)
 
-def removeExcess():
+def removeExcess(name_of_output_file):
     for jl in glob.glob("*temp.csv"):
 	os.remove(jl)
+    createMaster = 'cat *output.csv >> %s' % name_of_output_file
     subprocess.call('cat *output.csv >> master.csv', shell=True)
     for kl in glob.glob("*output.csv"):
 	os.remove(kl)
@@ -78,7 +79,7 @@ def unPop():
 	    for abc in glob.glob("clone*.csv"):
    		file(abc)
 	else:	
-	    removeExcess()
+	    removeExcess(outputFile)
 	    break
 
 if __name__=="__main__":
@@ -87,7 +88,7 @@ if __name__=="__main__":
         fileClone = open('clone.csv', 'w+')
         fileClone.close
         while True:
-            versionControl(60)
+            versionControl(timeInterval, inputFile)
             unPop()
     except IOError:
         pass
