@@ -1,69 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+    <title>Version-Merger by facerecog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <title>Version-merger by facerecog</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
-    <div id="container">
-      <div class="inner">
+    <section class="page-header">
+      <h1 class="project-name">Version-Merger</h1>
+      <h2 class="project-tagline">Automatically track and save your rapidly changing CSV files!</h2>
+      <a href="https://github.com/facerecog/version-merger" class="btn">View on GitHub</a>
+      <a href="https://github.com/facerecog/version-merger/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/facerecog/version-merger/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-        <header>
-          <h1>Version-merger</h1>
-          <h2>Version Merger is a Python script which can be used to save snapshots of a file(s) as it changes through time. Property of Facerecog Asia Pte. Ltd. and 26 Factorial</h2>
-        </header>
+    <section class="main-content">
+      <h1>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Overview</strong>
+</h1>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/facerecog/version-merger/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/facerecog/version-merger/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/facerecog/version-merger" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
-        <hr>
-
-        <section id="main_content">
-          <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
+<p>Version Merger is a Python script which can be used to automatically save snapshots of a CSV file as it changes. </p>
 
 <h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h3>
 
-<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
-
-<h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/#mentioning-users-and-teams" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<ul>
+<li>Track files</li>
+<li>Save changes in files by overwriting previous versions</li>
+<li>Consolidate all changed files into a single master file </li>
+<li>Specify when to merge changes into the master file</li>
+<li>Works with any Linux operating system</li>
+<li>3-step configuration wizard that requires less than 1 minute to set-up</li>
+</ul>
 
 <h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+<a id="system-requirements" class="anchor" href="#system-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>System Requirements</h3>
 
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
-        </section>
+<ul>
+<li>Python 2.7</li>
+<li>These instructions have been tested on Ubuntu 14.04.3 and 15.10.</li>
+</ul>
 
-        <footer>
-          Version-merger is maintained by <a href="https://github.com/facerecog">facerecog</a><br>
-          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
+<hr>
 
-        
-      </div>
-    </div>
+<h1>
+<a id="animated-tutorial" class="anchor" href="#animated-tutorial" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Animated Tutorial</strong>
+</h1>
+
+<p>   </p>
+
+<hr>
+
+<h1>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Getting started</strong>
+</h1>
+
+<h3>
+<a id="download" class="anchor" href="#download" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download</h3>
+
+<p>Clone the latest repository version from Github (recommended):
+<code>$ git clone https://github.com/facerecog/version-merger.git</code></p>
+
+<p>Alternatively, download the .tar.gz file from the top of this page and unpack it:
+<code>$ wget https://github.com/facerecog/version-merger/tarball/master -O - | tar -xz</code></p>
+
+<p>Now <code>cd</code> into the newly extracted directory.</p>
+
+<hr>
+
+<h1>
+<a id="how-the-script-works" class="anchor" href="#how-the-script-works" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>How the script works</strong>
+</h1>
+
+<hr>
+
+<h1>
+<a id="verify-that-it-works" class="anchor" href="#verify-that-it-works" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Verify that it works</strong>
+</h1>
+
+<p>Run the following script that writes a random value in <code>dump.csv</code> every second:
+<code>python example/randomizing_csv.py</code></p>
+
+<p>Open a <em>new terminal</em> and run version-merger.py as such:
+<code>python version-merger.py -i dump.csv -o mastercopy.csv -t 60 -r 1</code></p>
+
+<p>If you have many files to track, you may use filename globbing as such:
+<code>python version-merger.py -i dump*.csv -o mastercopy.csv -t 60 -r 1</code></p>
+
+<hr>
+
+<h1>
+<a id="version-merger-diagram" class="anchor" href="#version-merger-diagram" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Version-Merger Diagram</strong>
+</h1>
+
+<hr>
+
+<h1>
+<a id="uninstall" class="anchor" href="#uninstall" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Uninstall</strong>
+</h1>
+
+<p>To uninstall:</p>
+
+<hr>
+
+<h1>
+<a id="support" class="anchor" href="#support" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Support</strong>
+</h1>
+
+<p>If you want to support this project, please consider reaching out to me via  <a href="mailto:muhd.amrullah@facerecog.asia">muhd.amrullah@facerecog.asia</a>  </p>
+
+<hr>
+
+<p>Property of Facerecog Asia Pte. Ltd. and 26 Factorial</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/facerecog/version-merger">Version-Merger</a> is maintained by <a href="https://github.com/facerecog">facerecog</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
   </body>
 </html>
