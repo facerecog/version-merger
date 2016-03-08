@@ -80,6 +80,17 @@
 <a id="how-the-script-works" class="anchor" href="#how-the-script-works" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>How the script works</strong>
 </h1>
 
+<p><code>version-merger.py</code> takes in the following parameters:</p>
+
+<ul>
+<li>i (input file(s))</li>
+<li>o (output file)</li>
+<li>r (time interval between each snapshot)</li>
+<li>t (time interval between each merge)</li>
+</ul>
+
+<p>Every <em>r</em> seconds, <code>version-merger.py</code> uses <code>git stash</code> to save any changes in the input file <em>i</em>. Every <em>t</em> seconds, <code>version-merger.py</code> will merge all stashed content into output file <em>o</em>.</p>
+
 <hr>
 
 <h1>
@@ -133,6 +144,16 @@
 
     </section>
 
-  
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-73734489-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
   </body>
 </html>
