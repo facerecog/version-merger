@@ -73,7 +73,8 @@
 
 <p>Now <code>cd</code> into the newly extracted directory.</p>
 
-<p>Alternatively, install using <code>pip</code>: <code>sudo pip install version-merger</code></p>
+<p>Alternatively, install using <code>pip</code>:
+<code>sudo pip install version-merger</code></p>
 
 <hr>
 
@@ -84,10 +85,10 @@
 <p><code>version-merger.py</code> takes in the following parameters:</p>
 
 <ul>
-<li>-i, Input file(s) you want to keep track of</li>
-<li>-o, Output file</li>
-<li>-r, Time interval between each snapshot</li>
-<li>-t, Time interval between each merge</li>
+<li>i, Input file(s) you want to keep track of</li>
+<li>o, Output file</li>
+<li>r, Time interval (in seconds) between each snapshot</li>
+<li>t, Time interval (in seconds) between each merge</li>
 </ul>
 
 <p>Every <em>r</em> seconds, <code>version-merger.py</code> uses <code>git stash</code> to save any changes in the input file <em>i</em>. Every <em>t</em> seconds, <code>version-merger.py</code> will merge all stashed content into output file <em>o</em>.</p>
