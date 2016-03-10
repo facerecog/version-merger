@@ -107,6 +107,46 @@
 <p>If you have many files to track, you may use filename globbing as such:<br>
 <code>python version-merger.py -i dump*.csv -o mastercopy.csv -t 60 -r 1</code></p>
 
+<h1>
+<a id="code-example" class="anchor" href="#code-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Code Example</strong>
+</h1>
+
+<p>Code Example</p>
+
+<p>For the sake of brevity, this example merges its stashed versions of <code>dump.csv</code> every 3 seconds:</p>
+
+<pre><code>$ python version-merger.py -i dump.csv -o mastercopy.csv -t 3 -r 1
+Reinitialized existing Git repository in /home/di/Desktop/FaceRecog/t/version-merger/.git/
+[master b1d1ef5] First Commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 clone.csv
+Saved working directory and index state WIP on master: b1d1ef5 First Commit
+HEAD is now at b1d1ef5 First Commit
+Submitted
+dump.csv
+Saved working directory and index state WIP on master: b1d1ef5 First Commit
+HEAD is now at b1d1ef5 First Commit
+Submitted
+dump.csv
+Saved working directory and index state WIP on master: b1d1ef5 First Commit
+HEAD is now at b1d1ef5 First Commit
+Submitted
+dump.csv
+HEAD is now at b1d1ef5 First Commit
+Done
+cat: tempclone.csvtemp.csv: No such file or directory
+HEAD is now at b1d1ef5 First Commit
+Done
+HEAD is now at b1d1ef5 First Commit
+Done
+Saved working directory and index state WIP on master: b1d1ef5 First Commit
+HEAD is now at b1d1ef5 First Commit
+Submitted
+dump.csv
+</code></pre>
+
+<p>... and so on.</p>
+
 <hr>
 
 <h1>
