@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Version-Merger by facerecog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Version-Merger</h1>
+      <h2 class="project-tagline">Automatically track and save your rapidly changing files!</h2>
+      <a href="https://github.com/facerecog/version-merger" class="btn">View on GitHub</a>
+      <a href="https://github.com/facerecog/version-merger/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/facerecog/version-merger/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p><img src="https://raw.githubusercontent.com/facerecog/version-merger/gh-pages/images/version-merger-logo.png" align="left" height="130" width="170"></p>
+
+<p> </p>
+
+<h1>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Overview</strong>
+</h1>
+
+<p>Version Merger is a Python script which can be used to automatically save snapshots of a file as it changes. </p>
+
+<h3>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h3>
+
+<ul>
+<li>Track files across regular time intervals (specified by user)</li>
+<li>Save new versions of file efficiently </li>
+<li>Merge files across regular time intervals (specified by user)</li>
+<li>Works with any Linux operating system</li>
+<li>3-step configuration wizard that requires less than 1 minute to set-up</li>
+</ul>
+
+<h3>
+<a id="system-requirements" class="anchor" href="#system-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>System Requirements</h3>
+
+<ul>
+<li>Python 2.7</li>
+<li>These instructions have been tested on Ubuntu 14.04.3 and 15.10.</li>
+</ul>
+
+<hr>
+
+<h1>
+<a id="animated-tutorial" class="anchor" href="#animated-tutorial" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Animated Tutorial</strong>
+</h1>
+
+<p></p><div>
+    <img src="https://raw.githubusercontent.com/facerecog/version-merger/gh-pages/images/version-merger-tutorial.gif" align="left" width="540px" height="360px">
+
+<hr>
+
+<h1>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Getting started</strong>
+</h1>
+
+<h3>
+<a id="download" class="anchor" href="#download" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download</h3>
+
+<p>Clone the latest repository version from Github (recommended):
+<code>$ git clone https://github.com/facerecog/version-merger.git</code></p>
+
+<p>Alternatively, download the .tar.gz file from the top of this page and unpack it:
+<code>$ wget https://github.com/facerecog/version-merger/tarball/master -O - | tar -xz</code></p>
+
+<p>Now <code>cd</code> into the newly extracted directory.</p>
+
+<p>Alternatively, install using <code>pip</code>:  <code>sudo pip install version-merger</code></p>
+
+<hr>
+
+<h1>
+<a id="how-the-script-works" class="anchor" href="#how-the-script-works" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>How the script works</strong>
+</h1>
+
+<p><code>version-merger.py</code> takes in the following parameters:</p>
+
+<ul>
+<li>i, Input file(s) you want to keep track of</li>
+<li>o, Output file</li>
+<li>r, Time interval (in seconds) between each snapshot</li>
+<li>t, Time interval (in seconds) between each merge</li>
+</ul>
+
+<p>Every <em>r</em> seconds, <code>version-merger.py</code> uses <code>git stash</code> to save any changes in the input file <em>i</em>. Every <em>t</em> seconds, <code>version-merger.py</code> will merge all stashed content into output file <em>o</em>.</p>
+
+<hr>
+
+<h1>
+<a id="verify-that-it-works" class="anchor" href="#verify-that-it-works" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Verify that it works</strong>
+</h1>
+
+<p>Run the following script that writes a random value in <code>dump.csv</code> every second:<br>
+<code>python example/randomizing_csv.py</code></p>
+
+<p>Open a <em>new terminal</em> and run version-merger.py as such:
+<code>python version-merger.py -i dump.csv -o mastercopy.csv -t 60 -r 1</code></p>
+
+<p>If you have many files to track, you may use filename globbing as such:<br>
+<code>python version-merger.py -i dump*.csv -o mastercopy.csv -t 60 -r 1</code></p>
+
+<h1>
+<a id="code-example" class="anchor" href="#code-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Code Example</strong>
+</h1>
+
+<p>Code Example</p>
+
+<p>For the sake of brevity, this example merges its stashed versions of <code>dump.csv</code> every 3 seconds:</p>
+
+<pre><code>$ python version-merger.py -i dump.csv -o mastercopy.csv -t 3 -r 1
+Reinitialized existing Git repository in /home/di/Desktop/FaceRecog/t/version-merger/.git/
+[master b1d1ef5] First Commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 clone.csv
+Saved working directory and index state WIP on master: b1d1ef5 First Commit
+HEAD is now at b1d1ef5 First Commit
+Submitted
+dump.csv
+Saved working directory and index state WIP on master: b1d1ef5 First Commit
+HEAD is now at b1d1ef5 First Commit
+Submitted
+dump.csv
+Saved working directory and index state WIP on master: b1d1ef5 First Commit
+HEAD is now at b1d1ef5 First Commit
+Submitted
+dump.csv
+HEAD is now at b1d1ef5 First Commit
+Done
+cat: tempclone.csvtemp.csv: No such file or directory
+HEAD is now at b1d1ef5 First Commit
+Done
+HEAD is now at b1d1ef5 First Commit
+Done
+Saved working directory and index state WIP on master: b1d1ef5 First Commit
+HEAD is now at b1d1ef5 First Commit
+Submitted
+dump.csv
+</code></pre>
+
+<p>... and so on.</p>
+
+<hr>
+
+<h1>
+<a id="version-merger-diagram" class="anchor" href="#version-merger-diagram" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Version-Merger Diagram</strong>
+</h1>
+
+<p><img src="https://raw.githubusercontent.com/facerecog/version-merger/gh-pages/images/version-merger-explanation.png"></p>
+
+<p>   </p>
+
+<hr>
+
+<h1>
+<a id="uninstall" class="anchor" href="#uninstall" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Uninstall</strong>
+</h1>
+
+<p>If you installed version-merger using pip, run the following to uninstall it:
+<code>sudo pip uninstall version-merger</code></p>
+
+<p>Otherwise, simply delete the version-merger folder.</p>
+
+<hr>
+
+<h1>
+<a id="support" class="anchor" href="#support" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Support</strong>
+</h1>
+
+<p>If you want to support this project, please consider reaching out to me via  <a href="mailto:muhd.amrullah@facerecog.asia">muhd.amrullah@facerecog.asia</a>  </p>
+
+<hr>
+
+<p>Property of Facerecog Asia Pte. Ltd. and 26 Factorial</p>
+</div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/facerecog/version-merger">Version-Merger</a> is maintained by <a href="https://github.com/facerecog">facerecog</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-73734489-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
