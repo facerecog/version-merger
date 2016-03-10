@@ -86,10 +86,10 @@
 <p><code>version-merger.py</code> takes in the following parameters:</p>
 
 <ul>
-<li>i (input file(s))</li>
-<li>o (output file)</li>
-<li>r (time interval between each snapshot)</li>
-<li>t (time interval between each merge)</li>
+<li>-i, Input file(s) you want to keep track of</li>
+<li>-o, Output file</li>
+<li>-r, Time interval between each snapshot</li>
+<li>-t, Time interval between each merge</li>
 </ul>
 
 <p>Every <em>r</em> seconds, <code>version-merger.py</code> uses <code>git stash</code> to save any changes in the input file <em>i</em>. Every <em>t</em> seconds, <code>version-merger.py</code> will merge all stashed content into output file <em>o</em>.</p>
@@ -100,13 +100,13 @@
 <a id="verify-that-it-works" class="anchor" href="#verify-that-it-works" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Verify that it works</strong>
 </h1>
 
-<p>Run the following script that writes a random value in <code>dump.csv</code> every second:
+<p>Run the following script that writes a random value in <code>dump.csv</code> every second:<br>
 <code>python example/randomizing_csv.py</code></p>
 
 <p>Open a <em>new terminal</em> and run version-merger.py as such:
 <code>python version-merger.py -i dump.csv -o mastercopy.csv -t 60 -r 1</code></p>
 
-<p>If you have many files to track, you may use filename globbing as such:
+<p>If you have many files to track, you may use filename globbing as such:<br>
 <code>python version-merger.py -i dump*.csv -o mastercopy.csv -t 60 -r 1</code></p>
 
 <hr>
