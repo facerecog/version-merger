@@ -6,6 +6,8 @@
 
 Version Merger is a Python script which can be used to automatically save snapshots of a file as it changes. 
 
+Licensed under the MIT License - [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
+
 ### Features
 	
 - Track files across regular time intervals (specified by user)
